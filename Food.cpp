@@ -25,6 +25,6 @@ void Food::print() const
 		cout << " | Vegan |" << endl;
 	}
 	else {
-		cout << " | Nem vegan |" << endl;
+		cout << " | not Vegan |" << endl;
 	}
 }

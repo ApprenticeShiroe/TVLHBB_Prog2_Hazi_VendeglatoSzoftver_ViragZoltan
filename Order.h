@@ -1,5 +1,8 @@
 #pragma once
 #include <iostream>
+
+
+
 class Order
 {
 protected:
@@ -17,5 +20,6 @@ public:
 	double getQuantity()const;
 
 	virtual void print()const;
+
 };
 

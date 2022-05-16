@@ -8,6 +8,40 @@ Drink::Drink(const Drink& other)
 	quantity = other.quantity;
 }
 
+void Drink::loadMenu()
+{
+	ifstream menuFile;
+	menuFile.open("drinkmenu.txt", ifstream::in);
+	if (!menuFile.is_open()) {
+		cerr << "Error while trying to open file!";
+	}
+	else {
+		cout << "Reading from drinkmenu.txt." << endl;
+		int tmpPrice = 0;
+		double tmpQuant = 0.0;
+		string tmpName;
+		int tmpState;
+		while (menuFile.eof()) {
+			menuFile >> tmpName >> tmpPrice >> tmpQuant >> tmpState;
+			if (tmpState == 1) {
+				Drink::Drinkmenu.push_back(Drink(tmpPrice, tmpQuant, tmpName, true));
+			}
+			else {
+				Drink::Drinkmenu.push_back(Drink(tmpPrice, tmpQuant, tmpName, false));
+			}
+		}
+	}
+	menuFile.close();
+}
+
+void Drink::getMenu()
+{
+	for (int i = 0; i < Drink::Drinkmenu.size(); i++) {
+		cout << (i + 1);
+		Drink::Drinkmenu[i].print();
+	}
+}
+
 string Drink::getName() const
 {
 	return name;
@@ -22,9 +56,9 @@ void Drink::print() const
 {
 	cout << " | " << name << " | " << price << " Ft" << " | " << quantity << " " << unit;
 	if (isAlcoholic == true) {
-		cout << " | Alkoholos |" << endl;
+		cout << " | Alcoholic |" << endl;
 	}
 	else {
-		cout << " | Alkoholmentes |" << endl;
+		cout << " | non-Alcoholic |" << endl;
 	}
 }

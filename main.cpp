@@ -7,13 +7,23 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <vector>
 
 
 using namespace std;
 
 int main() {
-
-	Drink* Drinks[30];
+	
+	Drink::loadMenu();
+	Drink::getMenu();
+	
+	
+	
+	
+	
+	
+	/*
+	vector<Drink> VectorDrinks;
 
 	ifstream drinkmenu;
 	int tmpPrice;
@@ -21,39 +31,47 @@ int main() {
 	string tmpName;
 	int tmpState;
 	
-	int j = 0;
-
 	drinkmenu.open("drinkmenu.txt", ifstream::in);
 	if (!drinkmenu.is_open()) {
 		cout << "error while opening the file";
 	}
 	else {
 		cout << "reading from the file contetns" << endl;
-		int i = 0;
 		while (!drinkmenu.eof()) {
-			
 			drinkmenu >> tmpName >> tmpPrice >> tmpQuant >> tmpState;
 			if (tmpState == 1) {
-				Drinks[i] = new Drink(tmpPrice, tmpQuant, tmpName, true);
+				VectorDrinks.push_back(Drink(tmpPrice, tmpQuant, tmpName, true));
 			}
 			else {
-				Drinks[i] = new Drink(tmpPrice, tmpQuant, tmpName, false);
+				VectorDrinks.push_back(Drink(tmpPrice, tmpQuant, tmpName, false));
 			}
-			i++;
-			j++;
 		}
 
 	}
 
 	//cout << tmpPrice << " " << tmpQuant << " " << tmpName << " " << tmpState << endl;
 
-	for (int i = 0; i < j; i++) {
-		Drinks[i]->print();
-	}
 
 	drinkmenu.close();
 
+	for (int i = 0; i < VectorDrinks.size(); i++) {
+		VectorDrinks[i].print();
+	}
 
+
+	/*
+
+	Guest alany2;
+	alany2.print();
+	Drink a(*Drinks[2]);
+	alany2.addOrder(new Drink(a));
+
+
+	alany2.print();
+
+	alany2.removeOrders();
+
+	*/
 
 	return 0;
 }

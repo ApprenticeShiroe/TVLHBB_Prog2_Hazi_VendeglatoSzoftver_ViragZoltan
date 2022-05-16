@@ -4,6 +4,7 @@
 
 
 static int nextid = 0;
+
 class Guest
 {
 private:
