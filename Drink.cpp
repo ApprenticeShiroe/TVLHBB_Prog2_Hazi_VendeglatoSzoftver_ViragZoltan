@@ -4,6 +4,8 @@ Drink::Drink(const Drink& other)
 {
 	name = other.name;
 	isAlcoholic = other.isAlcoholic;
+	price = other.price;
+	quantity = other.quantity;
 }
 
 string Drink::getName() const
@@ -18,7 +20,7 @@ string Drink::getUnit() const
 
 void Drink::print() const
 {
-	cout << " | " << name << " | " << price << " Ft" << " | " << quantity << unit;
+	cout << " | " << name << " | " << price << " Ft" << " | " << quantity << " " << unit;
 	if (isAlcoholic == true) {
 		cout << " | Alkoholos |" << endl;
 	}

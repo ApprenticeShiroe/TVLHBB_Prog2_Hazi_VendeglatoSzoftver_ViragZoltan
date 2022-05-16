@@ -7,9 +7,10 @@ class Drink :
 {
 private:
     string name;
-    const string unit = "dl";
+    const string unit = "L";
     bool isAlcoholic;
 public:
+    Drink() :Order(), name(), isAlcoholic(false) {};
     Drink(int pPrice, double pQuantity, string pName, bool pAlcoholStatus) :Order(pPrice, pQuantity), name(pName), isAlcoholic(pAlcoholStatus) {};
     Drink(const Drink& other);
 

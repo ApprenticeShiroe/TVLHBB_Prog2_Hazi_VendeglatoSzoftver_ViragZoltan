@@ -17,17 +17,17 @@
   <Class Name="Guest">
     <Position X="5.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AmQAAAFBAAAEQAgAAAAAAAAAAAAAAAAAAEAAAAAAAgw=</HashCode>
+      <HashCode>AmQAAAFBAAAEQAgQAAAAAAAAAAAAAAAAAEAAAAAAAgw=</HashCode>
       <FileName>Guest.h</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
+    <ShowAsCollectionAssociation>
       <Field Name="orders" />
-    </ShowAsAssociation>
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Order">
     <Position X="1.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAUBAAIAAAAAAAAAAAAAARAEAAAAACCAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAUBAAIAAAAAAAAAAAAAARAAAAAAACCAAAAAAAAAAAA=</HashCode>
       <FileName>Order.h</FileName>
     </TypeIdentifier>
   </Class>

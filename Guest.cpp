@@ -6,7 +6,7 @@ Guest::Guest(const Guest& other)
 	id = other.id;
 	total = other.total;
 	paidStatus = other.paidStatus;
-	orders = other.orders;
+	orderCount = other.orderCount;
 }
 
 Guest::~Guest()
@@ -39,6 +39,20 @@ bool Guest::getPaidStatus() const
 	return paidStatus;
 }
 
+void Guest::addOrder(Order* pOrder)
+{
+	orders[orderCount] = pOrder;
+	setTotal(pOrder->getPrice());
+	orderCount++;
+}
+
+void Guest::removeOrders()
+{
+	for (int i = orderCount; i >= 0; --i) {
+		delete[] orders[i];
+	}
+}
+
 void Guest::print() const
 {
 	cout << "Guest's ID: " << id << endl;
@@ -49,5 +63,8 @@ void Guest::print() const
 	}
 	else {
 		cout << "Pending Payment" << endl;
+	}
+	for (int i = 0; i < orderCount; i++) {
+		orders[i]->print();
 	}
 }

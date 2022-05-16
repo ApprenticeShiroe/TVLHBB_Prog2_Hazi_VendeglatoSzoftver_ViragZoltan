@@ -4,16 +4,16 @@
 
 
 static int nextid = 0;
-
 class Guest
 {
 private:
 	int id;
 	int total;
 	bool paidStatus;
-	Order* orders;
+	int orderCount;
+	Order* orders[];
 public:
-	Guest() :id(++nextid), total(0), paidStatus(false), orders(nullptr) {};
+	Guest() :id(++nextid), total(0), paidStatus(false), orders(),orderCount(0) {};
 	Guest(const Guest& other);
 	~Guest();
 
@@ -25,8 +25,8 @@ public:
 	void setPaidStatus();
 	bool getPaidStatus()const;
 
-	void addOrder(const Order& pOrder);
-	void removeOrder(); //maybe
+	void addOrder(Order* pOrder);
+	void removeOrders(); //maybe
 
 	void print()const;
 

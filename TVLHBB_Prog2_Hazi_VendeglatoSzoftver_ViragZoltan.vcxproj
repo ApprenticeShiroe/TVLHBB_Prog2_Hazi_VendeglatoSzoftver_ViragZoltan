@@ -133,6 +133,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Order.cpp" />
     <ClCompile Include="Table.cpp" />
+    <ClCompile Include="TEST_ARCHIVE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Drink.h" />
@@ -143,6 +144,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="drinkmenu.txt" />
+    <Text Include="foodmenu.txt" />
+    <Text Include="tables.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

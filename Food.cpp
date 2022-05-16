@@ -4,6 +4,8 @@ Food::Food(const Food& other)
 {
 	name = other.name;
 	isVegan = other.isVegan;
+	price = other.price;
+	quantity = other.quantity;
 }
 
 string Food::getName() const

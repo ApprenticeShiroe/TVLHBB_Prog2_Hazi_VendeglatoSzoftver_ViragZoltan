@@ -8,7 +8,7 @@ protected:
 public:
 	Order() :price(0), quantity(0.0) {};
 	Order(int pPrice, double pQuantity) :price(pPrice), quantity(pQuantity) {};
-	virtual ~Order();
+	//virtual ~Order();
 
 	void setPrice(int pPrice);
 	int getPrice()const;

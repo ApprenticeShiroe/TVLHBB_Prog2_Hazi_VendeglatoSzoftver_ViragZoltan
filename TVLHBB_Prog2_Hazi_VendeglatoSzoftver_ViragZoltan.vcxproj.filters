@@ -33,6 +33,9 @@
     <ClCompile Include="Food.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TEST_ARCHIVE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Table.h">
@@ -53,5 +56,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="tables.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="foodmenu.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="drinkmenu.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
