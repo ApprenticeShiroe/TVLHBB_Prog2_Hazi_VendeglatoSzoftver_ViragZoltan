@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Drink">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAAEggAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Drink.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Food">
+    <Position X="3" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAABAgAAAAAAAAAAAAAAAEAAAAAAAEAgAAAAA=</HashCode>
+      <FileName>Food.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Guest">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AmQAAAFBAAAEQAgAAAAAAAAAAAAAAAAAAEAAAAAAAgw=</HashCode>
+      <FileName>Guest.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="orders" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Order">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUBAAIAAAAAAAAAAAAAARAEAAAAACCAAAAAAAAAAAA=</HashCode>
+      <FileName>Order.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Table">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAQAIAAAAEBAAAAAAACAAAAAA=</HashCode>
+      <FileName>Table.h</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="guests" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

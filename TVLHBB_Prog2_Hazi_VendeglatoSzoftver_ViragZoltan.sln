@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TVLHBB_Prog2_Hazi_VendeglatoSzoftver_ViragZoltan", "TVLHBB_Prog2_Hazi_VendeglatoSzoftver_ViragZoltan.vcxproj", "{4DB83400-CB9B-43E0-9DC4-57632270A429}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DB83400-CB9B-43E0-9DC4-57632270A429}.Debug|x64.ActiveCfg = Debug|x64
+		{4DB83400-CB9B-43E0-9DC4-57632270A429}.Debug|x64.Build.0 = Debug|x64
+		{4DB83400-CB9B-43E0-9DC4-57632270A429}.Debug|x86.ActiveCfg = Debug|Win32
+		{4DB83400-CB9B-43E0-9DC4-57632270A429}.Debug|x86.Build.0 = Debug|Win32
+		{4DB83400-CB9B-43E0-9DC4-57632270A429}.Release|x64.ActiveCfg = Release|x64
+		{4DB83400-CB9B-43E0-9DC4-57632270A429}.Release|x64.Build.0 = Release|x64
+		{4DB83400-CB9B-43E0-9DC4-57632270A429}.Release|x86.ActiveCfg = Release|Win32
+		{4DB83400-CB9B-43E0-9DC4-57632270A429}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE19F7B7-733E-4B94-B3E3-EB328A9D3BEB}
+	EndGlobalSection
+EndGlobal
