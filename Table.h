@@ -14,7 +14,7 @@ private:
 	Guest* guests[];
 public:
 	Table() :tableId(0), seats(0), guestNumber(0), guests() {};
-	Table(int pId, int pSeats) :tableId(pId), seats(pSeats), guests() {};
+	Table(int pId, int pSeats) :tableId(pId), seats(pSeats), guests(),guestNumber(0) {};
 	Table(const Table& other);
 	~Table();
 
