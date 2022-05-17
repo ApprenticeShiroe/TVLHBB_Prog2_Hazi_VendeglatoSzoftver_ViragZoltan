@@ -9,6 +9,7 @@
 #include <fstream>
 #include <vector>
 
+#define NUMBER_OF_TABLES 10 // A vendeglato helyisegunk limitalt helyel dolgozik. Hogy ne legyenek "magic number"-ek
 
 using namespace std;
 
@@ -16,8 +17,31 @@ void help() {
 	cout << "commands: menu exit " << endl;
 }
 
-void UserOrder() {
+void UserOrder(vector<Drink> pDrinkmenu, vector<Food> pFoodmenu, vector<Table> pTableList) {
+	cout << "Select Table: ";
+	for (int i = 0; i < pTableList.size(); i++) {
+		cout << "[" << pTableList[i].getTableId() << "]" << endl;
+	}
+	
+	int gId;
+
+	cout << "Input Guest's ID: " << endl;
+	cin >> gId;
 	cout << "Specify your order, type | f | for food or | d | for drink" << endl;
+	string UserInput;
+	cin >> UserInput;
+	if (UserInput == "f") {
+		cout << "Select item: ";
+		int id;
+		cin >> id;
+		if (id > pFoodmenu.size() || id < pFoodmenu.size()) {
+			cerr << "Sadly this isn't on the menu";
+		}
+		else {
+
+		}
+
+	}
 }
 
 void UserGetMenu(vector<Drink> pDrinkmenu,vector<Food> pFoodmenu) {
@@ -31,14 +55,12 @@ void UserGetMenu(vector<Drink> pDrinkmenu,vector<Food> pFoodmenu) {
 
 
 int main() {
-
+	vector<Table> TableList;
 	vector<Drink> Drinkmenu;
 	vector<Food> Foodmenu;
-
+	Table::loadTables(TableList);
 	Drink::loadMenu(Drinkmenu);
 	Food::loadMenu(Foodmenu);
-
-
 	help();
 	string UserInput;
 
@@ -60,7 +82,7 @@ int main() {
 			UserGetMenu(Drinkmenu,Foodmenu);
 		}
 		if (UserInput == "order") {
-			UserOrder();
+			UserOrder(Drinkmenu, Foodmenu,TableList);
 		}
 
 

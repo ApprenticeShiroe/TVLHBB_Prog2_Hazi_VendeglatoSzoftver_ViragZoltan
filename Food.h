@@ -17,8 +17,8 @@ public:
     Food(int pPrice, double pQuantity, string pName, bool pVeganStatus) :Order(pPrice, pQuantity), name(pName), isVegan(pVeganStatus) {};
     Food(const Food& other);
 
-    static void loadMenu(vector<Food>& pDrinkmenu);
-    static void getMenu(vector<Food>& pDrinkmenu);
+    static void loadMenu(vector<Food>& pFoodmenu);
+    static void getMenu(vector<Food>& pFoodmenu);
 
 
     string getName()const;

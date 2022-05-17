@@ -1,19 +1,29 @@
 #pragma once
 #include "Guest.h"
 #include <iostream>
+#include <fstream>
+#include <vector>
+
+using namespace std;
 class Table
 {
 private:
 	int tableId;
 	int seats;
-	Guest* guests;
+	int guestNumber;
+	Guest* guests[];
 public:
-	Table() :tableId(0), seats(0), guests(nullptr) {};
-	Table(int pId, int pSeats) :tableId(pId), seats(pSeats), guests(nullptr) {};
+	Table() :tableId(0), seats(0), guestNumber(0), guests() {};
+	Table(int pId, int pSeats) :tableId(pId), seats(pSeats), guests() {};
 	Table(const Table& other);
 	~Table();
 
+	int getTableId()const;
 
+	static void loadTables(vector<Table> &pTableList);
+
+	void seatGuest(Guest* pGuest);
+	void leavingGuest(int guestId);
 
 	void print()const;
 };
