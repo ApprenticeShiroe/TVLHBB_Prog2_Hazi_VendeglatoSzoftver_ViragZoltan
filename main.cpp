@@ -17,30 +17,51 @@ void help() {
 	cout << "commands: menu exit " << endl;
 }
 
-void UserOrder(vector<Drink> pDrinkmenu, vector<Food> pFoodmenu, vector<Table> pTableList) {
-	cout << "Select Table: ";
+void UserAddGuest(vector<Table> pTableList, vector<Guest> pGuestsIn) {
+	pGuestsIn.push_back(Guest());
 	for (int i = 0; i < pTableList.size(); i++) {
-		cout << "[" << pTableList[i].getTableId() << "]" << endl;
+		if (pTableList[i].getSeats() > pTableList[i].getGuestNumber()) {
+			pTableList[i].seatGuest(pGuestsIn.back());
+			break;
+		}
+		if (i == pTableList.size()) {
+			cerr << "Sadly we're fully booked today.";
+		}
 	}
+}
+
+void UserOrder(vector<Drink> pDrinkmenu, vector<Food> pFoodmenu, vector<Guest> pGuestsIn) {
 	
-	int gId;
+	int guestID;
 
 	cout << "Input Guest's ID: " << endl;
-	cin >> gId;
+	cin >> guestID;
 	cout << "Specify your order, type | f | for food or | d | for drink" << endl;
 	string UserInput;
 	cin >> UserInput;
 	if (UserInput == "f") {
-		cout << "Select item: ";
+		cout << "Select Food Item: " << endl;
+		Food::getMenu(pFoodmenu);
 		int id;
 		cin >> id;
-		if (id > pFoodmenu.size() || id < pFoodmenu.size()) {
+		if (id > pFoodmenu.size() || id < 0) {
 			cerr << "Sadly this isn't on the menu";
 		}
 		else {
-
+			pGuestsIn[guestID - 1].addOrder(new Order(pFoodmenu[id - 1]));
 		}
-
+	}
+	if (UserInput == "d") {
+		cout << "Select Drink Item: " << endl;
+		Drink::getMenu(pDrinkmenu);
+		int id;
+		cin >> id;
+		if (id < pDrinkmenu.size() || id < 0) {
+			cerr << "Sadly this isn't on the menu";
+		}
+		else {
+			pGuestsIn[guestID - 1].addOrder(new Order(pDrinkmenu[id - 1]));
+		}
 	}
 }
 
@@ -58,6 +79,7 @@ int main() {
 	vector<Table> TableList;
 	vector<Drink> Drinkmenu;
 	vector<Food> Foodmenu;
+	vector<Guest> GuestsIn;
 	Table::loadTables(TableList);
 	Drink::loadMenu(Drinkmenu);
 	Food::loadMenu(Foodmenu);
@@ -66,15 +88,15 @@ int main() {
 
 	
 
+	//Guest alany;
 
-	Guest alany;
+	//alany.addOrder(&Drinkmenu.at(5-1));
+	//alany.addOrder(&Drinkmenu.at(5 - 1));
+	//alany.addOrder(&Foodmenu.at(8 - 1));
 
-	alany.addOrder(&Drinkmenu.at(5-1));
-	alany.addOrder(&Drinkmenu.at(5 - 1));
-	alany.addOrder(&Foodmenu.at(8 - 1));
+	//alany.print();
 
-	alany.print();
-
+	GuestsIn[0].print();
 
 	while (true) {
 		cin >> UserInput;
@@ -82,7 +104,7 @@ int main() {
 			UserGetMenu(Drinkmenu,Foodmenu);
 		}
 		if (UserInput == "order") {
-			UserOrder(Drinkmenu, Foodmenu,TableList);
+			UserOrder(Drinkmenu, Foodmenu,GuestsIn);
 		}
 
 

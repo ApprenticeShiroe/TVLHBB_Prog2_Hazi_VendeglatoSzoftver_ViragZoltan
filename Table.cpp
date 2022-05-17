@@ -11,16 +11,19 @@ Table::Table(const Table& other)
 	}
 }
 
-Table::~Table()
-{
-	for (int i = 0; i < guestNumber; i++) {
-		delete guests[i];
-	}
-}
-
 int Table::getTableId() const
 {
 	return tableId;
+}
+
+int Table::getGuestNumber() const
+{
+	return guestNumber;
+}
+
+int Table::getSeats() const
+{
+	return seats;
 }
 
 void Table::loadTables(vector<Table> &pTableList)
@@ -41,19 +44,17 @@ void Table::loadTables(vector<Table> &pTableList)
 	tableFile.close();
 }
 
-void Table::seatGuest(Guest* pGuest)
+void Table::seatGuest(Guest& pGuest)
 {
-	guests[guestNumber++] = pGuest;
+	guests.push_back(pGuest);
 	guestNumber++;
 }
 
 void Table::leavingGuest(int guestId)
 {
 	for (int i = 0; i < guestNumber; i++) {
-		if (guests[i]->getId() == guestId) {
-			delete guests[i];
-			guests[i] = guests[--guestNumber];
-			guests[guestNumber] = NULL;
+		if (guests[i].getId() == guestId) {
+			guests.erase(guests.begin() + i - 1);
 		}
 	}
 }
