@@ -13,15 +13,49 @@
 using namespace std;
 
 int main() {
-	
-	Drink::loadMenu();
-	Drink::getMenu();
-	
-	
-	
-	
-	
-	
+	vector<Drink> Drinkmenu;
+	//vector<Food> FoodMenu;
+
+	Drink::loadMenu(Drinkmenu);
+	Drink::getMenu(Drinkmenu);
+
+	Guest alany;
+
+	alany.addOrder(new Drink(Drinkmenu.at(5-1)));
+	alany.print();
+	alany.removeOrders();
+
+
+	/*
+	ifstream menuFile;
+	menuFile.open("drinkmenu.txt", ifstream::in);
+	if (!menuFile.is_open()) {
+		cerr << "Error while trying to open file!";
+	}
+	else {
+		int tmpPrice = 0;
+		double tmpQuant = 0.0;
+		string tmpName;
+		int tmpState;
+		while (!menuFile.eof()) {
+			menuFile >> tmpName >> tmpPrice >> tmpQuant >> tmpState;
+			if (tmpState == 1) {
+				Drinkmenu.push_back(Drink(tmpPrice, tmpQuant, tmpName, true));
+			}
+			else {
+				Drinkmenu.push_back(Drink(tmpPrice, tmpQuant, tmpName, false));
+			}
+		}
+	}
+	menuFile.close();
+
+	for (int i = 0; i < Drinkmenu.size(); i++) {
+		Drinkmenu[i].print();
+	}
+
+
+
+
 	/*
 	vector<Drink> VectorDrinks;
 

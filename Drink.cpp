@@ -1,5 +1,7 @@
 #include "Drink.h"
 
+
+
 Drink::Drink(const Drink& other)
 {
 	name = other.name;
@@ -8,7 +10,8 @@ Drink::Drink(const Drink& other)
 	quantity = other.quantity;
 }
 
-void Drink::loadMenu()
+
+void Drink::loadMenu(vector<Drink> &pDrinkmenu)
 {
 	ifstream menuFile;
 	menuFile.open("drinkmenu.txt", ifstream::in);
@@ -21,24 +24,24 @@ void Drink::loadMenu()
 		double tmpQuant = 0.0;
 		string tmpName;
 		int tmpState;
-		while (menuFile.eof()) {
+		while (!menuFile.eof()) {
 			menuFile >> tmpName >> tmpPrice >> tmpQuant >> tmpState;
 			if (tmpState == 1) {
-				Drink::Drinkmenu.push_back(Drink(tmpPrice, tmpQuant, tmpName, true));
+				pDrinkmenu.push_back(Drink(tmpPrice, tmpQuant, tmpName, true));
 			}
 			else {
-				Drink::Drinkmenu.push_back(Drink(tmpPrice, tmpQuant, tmpName, false));
+				pDrinkmenu.push_back(Drink(tmpPrice, tmpQuant, tmpName, false));
 			}
 		}
 	}
 	menuFile.close();
 }
 
-void Drink::getMenu()
+void Drink::getMenu(vector<Drink> &pDrinkmenu)
 {
-	for (int i = 0; i < Drink::Drinkmenu.size(); i++) {
+	for (int i = 0; i < pDrinkmenu.size(); i++) {
 		cout << (i + 1);
-		Drink::Drinkmenu[i].print();
+		pDrinkmenu[i].print();
 	}
 }
 

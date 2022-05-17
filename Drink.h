@@ -10,7 +10,6 @@ class Drink :
     public Order
 {
 private:
-    static  vector<Drink> Drinkmenu;
     string name;
     const string unit = "L";
     bool isAlcoholic;
@@ -19,8 +18,8 @@ public:
     Drink(int pPrice, double pQuantity, string pName, bool pAlcoholStatus) :Order(pPrice, pQuantity), name(pName), isAlcoholic(pAlcoholStatus) {};
     Drink(const Drink& other);
 
-    static void loadMenu();
-    static void getMenu();
+    static void loadMenu(vector<Drink> &pDrinkmenu);
+	static void getMenu(vector<Drink> &pDrinkmenu);
 
     string getName()const;
     string getUnit()const;
