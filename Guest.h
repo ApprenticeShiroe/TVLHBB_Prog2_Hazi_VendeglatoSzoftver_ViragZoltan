@@ -27,9 +27,14 @@ public:
 	bool getPaidStatus()const;
 
 	void addOrder(Order* pOrder);
-	void removeOrders(); //maybe
 
 	void print()const;
 
+	Order* operator[](int index)const {
+		if (!orderCount || index >= orderCount || index < 0) {
+			return NULL;
+		}
+		return orders[index];
+	}
 };
 

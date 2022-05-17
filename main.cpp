@@ -12,85 +12,27 @@
 
 using namespace std;
 
+void UserGetMenu(vector<Drink> pDrinkmenu) {
+	Drink::getMenu(pDrinkmenu);
+}
+
+
 int main() {
 	vector<Drink> Drinkmenu;
 	//vector<Food> FoodMenu;
-
+	string UserInput;
 	Drink::loadMenu(Drinkmenu);
-	Drink::getMenu(Drinkmenu);
+
+	
+
 
 	Guest alany;
 
-	alany.addOrder(new Drink(Drinkmenu.at(5-1)));
+	alany.addOrder(&Drinkmenu.at(5-1));
+	alany.addOrder(&Drinkmenu.at(5 - 1));
+	alany.addOrder(&Drinkmenu.at(8 - 1));
+
 	alany.print();
-	alany.removeOrders();
-
-
-	/*
-	ifstream menuFile;
-	menuFile.open("drinkmenu.txt", ifstream::in);
-	if (!menuFile.is_open()) {
-		cerr << "Error while trying to open file!";
-	}
-	else {
-		int tmpPrice = 0;
-		double tmpQuant = 0.0;
-		string tmpName;
-		int tmpState;
-		while (!menuFile.eof()) {
-			menuFile >> tmpName >> tmpPrice >> tmpQuant >> tmpState;
-			if (tmpState == 1) {
-				Drinkmenu.push_back(Drink(tmpPrice, tmpQuant, tmpName, true));
-			}
-			else {
-				Drinkmenu.push_back(Drink(tmpPrice, tmpQuant, tmpName, false));
-			}
-		}
-	}
-	menuFile.close();
-
-	for (int i = 0; i < Drinkmenu.size(); i++) {
-		Drinkmenu[i].print();
-	}
-
-
-
-
-	/*
-	vector<Drink> VectorDrinks;
-
-	ifstream drinkmenu;
-	int tmpPrice;
-	double tmpQuant;
-	string tmpName;
-	int tmpState;
-	
-	drinkmenu.open("drinkmenu.txt", ifstream::in);
-	if (!drinkmenu.is_open()) {
-		cout << "error while opening the file";
-	}
-	else {
-		cout << "reading from the file contetns" << endl;
-		while (!drinkmenu.eof()) {
-			drinkmenu >> tmpName >> tmpPrice >> tmpQuant >> tmpState;
-			if (tmpState == 1) {
-				VectorDrinks.push_back(Drink(tmpPrice, tmpQuant, tmpName, true));
-			}
-			else {
-				VectorDrinks.push_back(Drink(tmpPrice, tmpQuant, tmpName, false));
-			}
-		}
-
-	}
-
-	//cout << tmpPrice << " " << tmpQuant << " " << tmpName << " " << tmpState << endl;
-
-
-	drinkmenu.close();
-
-	for (int i = 0; i < VectorDrinks.size(); i++) {
-		VectorDrinks[i].print();
-	}
 
 
 	/*
@@ -106,6 +48,24 @@ int main() {
 	alany2.removeOrders();
 
 	*/
+
+	while (true) {
+		cin >> UserInput;
+		if (UserInput == "menu") {
+			UserGetMenu(Drinkmenu);
+		}
+
+
+
+
+
+
+		if (UserInput == "exit") {
+			return 0;
+		}
+	}
+
+
 
 	return 0;
 }

@@ -7,11 +7,16 @@ Guest::Guest(const Guest& other)
 	total = other.total;
 	paidStatus = other.paidStatus;
 	orderCount = other.orderCount;
+	for (int i = 0; i < orderCount; i++) {
+		orders[i] = other.orders[i];
+	}
 }
 
 Guest::~Guest()
 {
-	delete[] orders;
+	for (int i = 0; i < orderCount; i++) {
+		delete orders[i];
+	}
 }
 
 int Guest::getId() const
@@ -41,17 +46,10 @@ bool Guest::getPaidStatus() const
 
 void Guest::addOrder(Order* pOrder)
 {
-	orders[orderCount] = pOrder;
+	orders[orderCount++] = pOrder;
 	setTotal(pOrder->getPrice());
-	orderCount++;
 }
 
-void Guest::removeOrders()
-{
-	for (int i = orderCount; i >= 0; --i) {
-		delete[] orders[i];
-	}
-}
 
 void Guest::print() const
 {
