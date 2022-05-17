@@ -14,9 +14,10 @@ Guest::Guest(const Guest& other)
 
 Guest::~Guest()
 {
-	for (int i = 0; i < orderCount; i++) {
+	for (int i = orderCount; i >= 0; i--) {
 		delete orders[i];
-	}
+}
+
 }
 
 int Guest::getId() const
